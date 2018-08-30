@@ -2,6 +2,25 @@ import { connectionPool } from "../util/connection-util";
 import { User } from "../model/user";
 import { userConverter } from "../util/user-converter";
 
+
+/**
+ * Add a new user to the DB
+ * @param user
+ */
+export async function create(user: User): Promise<number> {
+    const client = await connectionPool.connect();
+    try {
+        const resp = await client.query(
+            `INSERT INTO ers_app.users 
+        (username, pass, first_name, last_name, email, user_role_id)
+        VALUES ($1, $2, $3, $4, $5, 1) 
+        RETURNING user_id`, [user.username, user.password, user.firstName, user.lastName, user.email]);
+        return resp.rows[0].user_id;
+    } finally {
+        client.release();
+    }
+}
+
 /**
  * Retreive a single user by username and password, will also retreive all of that users movies
  * @param id
