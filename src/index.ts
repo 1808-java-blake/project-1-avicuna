@@ -2,6 +2,7 @@ import express from 'express';
 import path from 'path';
 import bodyParser from 'body-parser';
 import session from 'express-session';
+import {userRouter} from "./routers/user-router";
 
 // create the app object from express
 const app = express();
@@ -38,6 +39,11 @@ app.use(
 
 // use the body parser to convert request json
 app.use(bodyParser.json());
+
+/*********************************************************************************************
+ * API Routers
+ ********************************************************************************************/
+app.use('/users', userRouter);
 
 
 const server = app.listen(port, () => {
