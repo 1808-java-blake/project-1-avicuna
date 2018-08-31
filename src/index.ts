@@ -3,6 +3,7 @@ import path from 'path';
 import bodyParser from 'body-parser';
 import session from 'express-session';
 import {userRouter} from "./routers/user-router";
+import {reimbRouter} from "./routers/reimb-router";
 
 // create the app object from express
 const app = express();
@@ -45,6 +46,7 @@ app.use(bodyParser.json());
  * API Routers
  ********************************************************************************************/
 app.use('/users', userRouter);
+app.use('/reimbursements', reimbRouter);
 
 
 const server = app.listen(port, () => {
