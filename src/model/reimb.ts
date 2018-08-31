@@ -1,4 +1,4 @@
-export class Reimbursement {
+export class Reimb {
     id = 0;
     reimbAmount = 0;
     reimbSubmitted = '';

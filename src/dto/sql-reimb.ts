@@ -1,4 +1,4 @@
-export class SqlReimbursement {
+export class SqlReimb {
     reimb_id = 0;
     reimb_amount = 0;
     reimb_submitted = '';

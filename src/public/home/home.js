@@ -22,22 +22,22 @@ else {
   `
 }
 
-function addMovieToTable(movie) {
+function addMovieToTable(reimb) {
   const tbody = document.getElementById('movie-table-body');
   tbody.innerHTML += `
   <tr>
-    <th scope="row">${movie.title}</th>
-    <td>${movie.numBlades}</td>
-    <td>${movie.year}</td>
+    <th scope="row">${reimb.title}</th>
+    <td>${reimb.numBlades}</td>
+    <td>${reimb.year}</td>
   </tr>
   `
 }
 
-fetch('http://localhost:9001/movies')
+fetch('http://localhost:9001/reimbursements')
   .then(res => res.json())
   .then(res => {
-    res.forEach(movie => {
-      addMovieToTable(movie);
+    res.forEach(reimb => {
+      addMovieToTable(reimb);
     })
   })
   .catch(err => {
