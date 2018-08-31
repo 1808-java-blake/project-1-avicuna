@@ -7,6 +7,7 @@ import {userRouter} from "./routers/user-router";
 // create the app object from express
 const app = express();
 
+
 // set the port
 const port = 9001; // will use port from computers environment variables or 3000 if there is none
 app.set('port', port);
