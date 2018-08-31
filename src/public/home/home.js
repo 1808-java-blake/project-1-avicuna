@@ -26,9 +26,12 @@ function addMovieToTable(reimb) {
   const tbody = document.getElementById('movie-table-body');
   tbody.innerHTML += `
   <tr>
-    <th scope="row">${reimb.title}</th>
-    <td>${reimb.numBlades}</td>
-    <td>${reimb.year}</td>
+    <th scope="row">${reimb.id}</th>
+    <td>${reimb.reimbAmount}</td>
+    <td>${reimb.reimbSubmitted}</td>
+    <td>${reimb.reimbDescription}</td>
+    <td>${reimb.reimbTypeId}</td>
+    <td>${reimb.reimbStatusId}</td>
   </tr>
   `
 }
