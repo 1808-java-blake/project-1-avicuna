@@ -23,6 +23,35 @@ else {
 }
 
 function addMovieToTable(reimb) {
+    console.log(reimb.reimbStatusId);
+    let reimbType;
+    let reimbStatus;
+    switch (reimb.reimbTypeId) {
+        case 1:
+            reimbType = "Lodging";
+            break;
+        case 2:
+            reimbType = "Travel";
+            break;
+        case 3:
+            reimbType = "Food";
+            break;
+        case 4:
+            reimbType = "Other";
+            break;
+    }
+
+    switch (reimb.reimbStatusId) {
+        case 1:
+            reimbStatus = "Pending";
+            break;
+        case 2:
+            reimbStatus = "Accepted";
+            break;
+        case 3:
+            reimbStatus = "Denied";
+            break;
+    }
   const tbody = document.getElementById('movie-table-body');
   tbody.innerHTML += `
   <tr>
@@ -30,8 +59,8 @@ function addMovieToTable(reimb) {
     <td>${reimb.reimbAmount}</td>
     <td>${reimb.reimbSubmitted}</td>
     <td>${reimb.reimbDescription}</td>
-    <td>${reimb.reimbTypeId}</td>
-    <td>${reimb.reimbStatusId}</td>
+    <td>${reimbType}</td>
+    <td>${reimbStatus}</td>
   </tr>
   `
 }

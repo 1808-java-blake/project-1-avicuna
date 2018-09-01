@@ -46,18 +46,25 @@
 
   <div class="container" id="content-container">
     <div class="row justify-content-center">
-      <form class="form-create-movie col-xs-12 col-sm-10 col-md-8 col-lg-6" onsubmit="createMovie(event)">
-        <h1 class="h3 mb-3 font-weight-normal">New Movie Info</h1>
-        <label for="input-title" class="sr-only">Title</label>
-        <input type="text" id="input-title" class="form-control" placeholder="Title" required autofocus>
+      <form class="form-create-movie col-xs-12 col-sm-10 col-md-8 col-lg-6" onsubmit="createReimb(event)">
+        <h1 class="h3 mb-3 font-weight-normal">Submit a new reimbursement</h1>
+        <label for="input-amount" class="sr-only">Amount</label>
+        <input type="number" id="input-amount" class="form-control" placeholder="Amount" required autofocus>
         <br>
 
-        <label for="input-year" class="sr-only">Year</label>
-        <input type="number" id="input-year" class="form-control" placeholder="Year" required autofocus>
+        <label for="input-description" class="sr-only">Description</label>
+        <input type="text" id="input-description" class="form-control" placeholder="Description" required autofocus>
         <br>
 
-        <label for="input-number-blades" class="sr-only">Number Blades</label>
-        <input type="number" id="input-number-blades" class="form-control" placeholder="Number Blades">
+        <div class="form-group">
+          <label for="sel1">Select type of reimbursement:</label>
+          <select class="form-control" id="sel1">
+            <option>Lodging</option>
+            <option>Travel</option>
+            <option>Food</option>
+            <option>Other</option>
+          </select>
+        </div>
         <br>
         <div class="container">
           <div class="row justify-content-center">
