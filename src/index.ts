@@ -42,6 +42,13 @@ app.use(
 // use the body parser to convert request json
 app.use(bodyParser.json());
 
+app.use((req, resp, next) => {
+    resp.header("Access-Control-Allow-Origin", "http://localhost:9001");
+    resp.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    resp.header("Access-Control-Allow-Credentials", "true");
+    next();
+})
+
 /*********************************************************************************************
  * API Routers
  ********************************************************************************************/

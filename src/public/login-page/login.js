@@ -25,8 +25,12 @@ function login(event) {
     })
     .then(resp => {
       localStorage.setItem('user', JSON.stringify(resp));
-
-      window.location = 'http://localhost:9001/home/home.html';
+      if(resp.userRoleId === 1) {
+          window.location = 'http://localhost:9001/home/home.html';
+      }
+      else {
+        window.location = 'http://localhost:9001/manager-home/manager-home.html'
+      }
     })
     .catch(err => {
       console.log(err);

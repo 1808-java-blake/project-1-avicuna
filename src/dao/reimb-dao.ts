@@ -5,11 +5,13 @@ import {reimbConverter} from "../util/reimb-converter";
 /**
  * Retreive all movies from the database
  */
-export async function findAll(): Promise<Reimb[]> {
+export async function findAll(): Promise<any> {
     const client = await connectionPool.connect();
+    console.log("connected");
     try {
-        const resp = await client.query('SELECT * FROM ers_app.reimbursements');
-        return resp.rows.map(reimbConverter);
+        const resp = await client.query(
+            'SELECT * FROM ers_app.reimbursements INNER JOIN ers_app.users ON reimbursements.reimb_author = users.user_id');
+        return resp.rows;
     } finally {
         client.release();
     }
