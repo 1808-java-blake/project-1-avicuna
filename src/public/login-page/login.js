@@ -25,6 +25,7 @@ function login(event) {
     })
     .then(resp => {
       localStorage.setItem('user', JSON.stringify(resp));
+
       window.location = 'http://localhost:9001/home/home.html';
     })
     .catch(err => {
