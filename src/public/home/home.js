@@ -1,4 +1,20 @@
 const userInfo = JSON.parse(localStorage.getItem('user'));
+console.log(userInfo);
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+
+if(dd<10) {
+    dd = '0'+dd
+}
+
+if(mm<10) {
+    mm = '0'+mm
+}
+
+today = mm + '/' + dd + '/' + yyyy;
+console.log(today);
 console.log("The current user's role id is: " + userInfo.userRoleId);
 
 if (userInfo.userRoleId === 1) {
@@ -23,7 +39,6 @@ else {
 }
 
 function addMovieToTable(reimb) {
-    console.log(reimb.reimbStatusId);
     let reimbType;
     let reimbStatus;
     switch (reimb.reimbTypeId) {
@@ -65,7 +80,7 @@ function addMovieToTable(reimb) {
   `
 }
 
-fetch('http://localhost:9001/reimbursements')
+fetch(`http://localhost:9001/reimbursements/${userInfo.id}`)
   .then(res => res.json())
   .then(res => {
     res.forEach(reimb => {

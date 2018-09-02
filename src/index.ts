@@ -10,7 +10,7 @@ const app = express();
 
 
 // set the port
-const port = 9001; // will use port from computers environment variables or 3000 if there is none
+const port = 9001;
 app.set('port', port);
 
 const sess = {

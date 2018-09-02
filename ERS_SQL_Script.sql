@@ -1,4 +1,4 @@
-set schema 'reimbursement_app';
+set schema 'ers_app';
 
 DROP TABLE users CASCADE;
 DROP TABLE reimbursement_status CASCADE;
@@ -34,8 +34,8 @@ CREATE TABLE reimbursement_type(
 CREATE TABLE reimbursements(
 	reimb_id SERIAL PRIMARY KEY,
 	reimb_amount INTEGER,
-	reimb_submitted TIMESTAMP,
-	reimb_resolved TIMESTAMP,
+	reimb_submitted VARCHAR(50),
+	reimb_resolved VARCHAR(50),
 	reimb_description VARCHAR(250),
 	reimb_author INTEGER REFERENCES users(user_id),
 	reimb_resolver INTEGER REFERENCES users(user_id),

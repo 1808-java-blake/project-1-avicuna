@@ -16,6 +16,23 @@ reimbRouter.get('', async(req, resp) => {
     }
 });
 
+reimbRouter.get('/:id', async(req, resp) => {
+    const id = +req.params.id;
+    console.log(`retrieving reimbursements by user id: ${id}`);
+    try {
+        let reimbs = await reimbDao.findById(id);
+        if (reimbs !== undefined) {
+            resp.json(reimbs);
+        }
+        else {
+            resp.sendStatus(400);
+        }
+    } catch(err) {
+        console.log(err);
+        resp.sendStatus(500);
+    }
+})
+
 /**
  * Create Movie
  */
