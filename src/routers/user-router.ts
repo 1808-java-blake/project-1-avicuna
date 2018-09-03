@@ -20,16 +20,3 @@ userRouter.post('/login', async (req, resp) => {
         resp.sendStatus(500);
     }
 })
-// /**
-//  * Find all users
-//  */
-// userRouter.get('', async (req: Request, resp: Response) => {
-//     try {
-//         console.log('retrieving all users');
-//         let users = await userDao.findAll();
-//         resp.json(users);
-//     } catch (err) {
-//         console.log(err);
-//         resp.sendStatus(500);
-//     }
-// });

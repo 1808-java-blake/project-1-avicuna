@@ -47,3 +47,23 @@ reimbRouter.post('', [
             resp.sendStatus(500);
         }
     }])
+
+reimbRouter.post('/:id/:managerId/:decision', [async (req, resp) => {
+    const resolved = req.body.resolved;
+    const id = +req.params.id;
+    const managerId = +req.params.managerId;
+    const decision = req.params.decision;
+    try {
+        if(decision === 'Accept'){
+            await reimbDao.acceptReimb(resolved, id, managerId);
+        }
+        else {
+            await reimbDao.denyReimb(resolved, id, managerId);
+        }
+        resp.status(201);
+        resp.json();
+    } catch (err) {
+        console.log(err);
+        resp.sendStatus(500);
+    }
+}])

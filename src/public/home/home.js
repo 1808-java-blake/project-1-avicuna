@@ -50,7 +50,7 @@ function addMovieToTable(reimb) {
   tbody.innerHTML += `
   <tr>
     <th scope="row">${reimb.id}</th>
-    <td>${reimb.reimbAmount}</td>
+    <td>$${reimb.reimbAmount}</td>
     <td>${reimb.reimbSubmitted}</td>
     <td>${reimb.reimbDescription}</td>
     <td>${reimbType}</td>
