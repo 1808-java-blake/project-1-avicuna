@@ -1,12 +1,15 @@
 import express from 'express';
 import * as reimbDao from '../dao/reimb-dao';
+import {authMiddleware} from "../security/authorization-middleware";
 
 export const reimbRouter = express.Router(); // routers represent a subset of routes for the express application
 
 /**
  * Find all reimbursements
  */
-reimbRouter.get('', async(req, resp) => {
+reimbRouter.get('', [
+    authMiddleware(2),
+    async(req, resp) => {
     try {
         console.log('retrieving all reimbursements');
         let reimbs = await reimbDao.findAll();
@@ -14,7 +17,7 @@ reimbRouter.get('', async(req, resp) => {
     } catch (err) {
         resp.sendStatus(500);
     }
-});
+}]);
 
 reimbRouter.get('/:id', async(req, resp) => {
     const id = +req.params.id;
@@ -48,7 +51,9 @@ reimbRouter.post('', [
         }
     }])
 
-reimbRouter.post('/:id/:managerId/:decision', [async (req, resp) => {
+reimbRouter.post('/:id/:managerId/:decision', [
+    authMiddleware(2),
+    async (req, resp) => {
     const resolved = req.body.resolved;
     const id = +req.params.id;
     const managerId = +req.params.managerId;
