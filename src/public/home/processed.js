@@ -46,12 +46,13 @@ function addMovieToTable(reimb) {
             reimbStatus = "Denied";
             break;
     }
-  const tbody = document.getElementById('movie-table-body');
-  tbody.innerHTML += `
+    const tbody = document.getElementById('movie-table-body');
+    tbody.innerHTML += `
   <tr>
     <th scope="row">${reimb.id}</th>
     <td>$${reimb.reimbAmount}</td>
     <td>${reimb.reimbSubmitted}</td>
+    <td>${reimb.reimbResolved}</td>  
     <td>${reimb.reimbDescription}</td>
     <td>${reimbType}</td>
     <td>${reimbStatus}</td>
@@ -60,14 +61,14 @@ function addMovieToTable(reimb) {
 }
 
 fetch(`http://localhost:9001/reimbursements/${userInfo.id}`)
-  .then(res => res.json())
-  .then(res => {
-    res.forEach(reimb => {
-        if(reimb.reimbStatusId === 1) {
-            addMovieToTable(reimb);
-        }
+    .then(res => res.json())
+    .then(res => {
+        res.forEach(reimb => {
+            if(reimb.reimbStatusId !== 1) {
+                addMovieToTable(reimb);
+            }
+        })
     })
-  })
-  .catch(err => {
-    console.log(err);
-  })
+    .catch(err => {
+        console.log(err);
+    });
