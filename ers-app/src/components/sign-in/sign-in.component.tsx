@@ -60,30 +60,35 @@ class SignInComponent extends React.Component<IProps, any> {
         const { errorMessage, credentials } = this.props;
 
         return (
-            <form className="form-signin" onSubmit={this.submit}>
-                <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
-                <label htmlFor="inputUsername" className="sr-only">Username</label>
-                <input
-                    onChange={this.usernameChange}
-                    value={credentials.username}
-                    type="text"
-                    id="inputUsername"
-                    className="form-control"
-                    placeholder="Username"
-                    required />
-                <label htmlFor="inputPassword" className="sr-only">Password</label>
-                <input
-                    onChange={this.passwordChange}
-                    value={credentials.password}
-                    type="password"
-                    id="inputPassword"
-                    className="form-control"
-                    placeholder="Password"
-                    required />
+            <div>
+                <h1 id="sign-in-header">Welcome to the Enterprise Reimbursement Software</h1>
+                <div id="sign-in-container">
+                <form className="form-signin" onSubmit={this.submit}>
+                    <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
+                    <label htmlFor="inputUsername" className="sr-only">Username</label>
+                    <input
+                        onChange={this.usernameChange}
+                        value={credentials.username}
+                        type="text"
+                        id="inputUsername"
+                        className="form-control"
+                        placeholder="Username"
+                        required />
+                    <label htmlFor="inputPassword" className="sr-only">Password</label>
+                    <input
+                        onChange={this.passwordChange}
+                        value={credentials.password}
+                        type="password"
+                        id="inputPassword"
+                        className="form-control"
+                        placeholder="Password"
+                        required />
 
-                <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-                {errorMessage && <p id="error-message">{errorMessage}</p>}
-            </form>
+                    <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                    {errorMessage && <p id="error-message">{errorMessage}</p>}
+                </form>
+                </div>
+            </div>
         );
     }
 }

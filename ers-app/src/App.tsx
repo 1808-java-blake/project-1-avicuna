@@ -17,6 +17,7 @@ class App extends React.Component {
                     <div id="main-content-container">
                         <Switch>
                             <Route path="/home" component={HomeComponent} />
+                            <Route path="/sign-in" component={SignInComponent} />
                             <Route component={SignInComponent} />
                         </Switch>
                     </div>
