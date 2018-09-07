@@ -3,6 +3,8 @@ import { RouteComponentProps } from 'react-router';
 import { connect } from 'react-redux';
 import * as signInActions from '../../actions/sign-in/sign-in.actions';
 import {ISignInState, IState} from "../../reducers";
+import { Container, Row, Col, Input, Button, Card, CardBody } from 'mdbreact';
+
 
 interface IProps extends RouteComponentProps<{}>, ISignInState {
     updateError: (message: string) => any
@@ -63,30 +65,43 @@ class SignInComponent extends React.Component<IProps, any> {
             <div>
                 <h1 id="sign-in-header">Welcome to the Enterprise Reimbursement Software</h1>
                 <div id="sign-in-container">
-                <form className="form-signin" onSubmit={this.submit}>
-                    <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
-                    <label htmlFor="inputUsername" className="sr-only">Username</label>
-                    <input
-                        onChange={this.usernameChange}
-                        value={credentials.username}
-                        type="text"
-                        id="inputUsername"
-                        className="form-control"
-                        placeholder="Username"
-                        required />
-                    <label htmlFor="inputPassword" className="sr-only">Password</label>
-                    <input
-                        onChange={this.passwordChange}
-                        value={credentials.password}
-                        type="password"
-                        id="inputPassword"
-                        className="form-control"
-                        placeholder="Password"
-                        required />
-
-                    <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-                    {errorMessage && <p id="error-message">{errorMessage}</p>}
-                </form>
+                    <Container>
+                        <Row>
+                            <Col md="6">
+                                <Card>
+                                    <CardBody>
+                                        <form onSubmit={this.submit}>
+                                            <p className="h4 text-center py-4">Please Sign In</p>
+                                            <div className="grey-text">
+                                                <Input
+                                                    id="inputUsername"
+                                                    label="Username"
+                                                    onChange={this.usernameChange}
+                                                    value={credentials.username}
+                                                    icon="user"
+                                                    group type="text"
+                                                    validate error="wrong"
+                                                    success="right"/>
+                                                <Input
+                                                    id="inputPassword"
+                                                    label="Password"
+                                                    onChange={this.passwordChange}
+                                                    value={credentials.password}
+                                                    icon="lock"
+                                                    group type="password"
+                                                    validate error="wrong"
+                                                    success="right"/>
+                                            </div>
+                                            <div className="text-center py-4 mt-3">
+                                                <Button color="cyan" type="submit">Sign In</Button>
+                                                {errorMessage && <p id="error-message">{errorMessage}</p>}
+                                            </div>
+                                        </form>
+                                    </CardBody>
+                                </Card>
+                            </Col>
+                        </Row>
+                    </Container>
                 </div>
             </div>
         );
