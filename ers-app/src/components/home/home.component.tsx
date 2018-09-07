@@ -7,7 +7,7 @@ export class HomeComponent extends React.Component {
     return (
         <div>
             <EmployeeNav/>
-            <div className="home-container">
+            <div id="home-container">
                 Welcome to the Home Component
             </div>
         </div>
