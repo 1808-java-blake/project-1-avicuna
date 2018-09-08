@@ -43,7 +43,12 @@ class SignInComponent extends React.Component<IProps, any> {
             })
             .then(resp => {
                 localStorage.setItem('user', JSON.stringify(resp));
-                this.props.history.push('/home');
+                if(resp.userRoleId === 1){
+                    this.props.history.push('/home');
+                }
+                else {
+                    this.props.history.push('/manager-home');
+                }
             })
             .catch(err => {
                 console.log(err);

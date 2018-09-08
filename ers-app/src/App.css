@@ -34,6 +34,12 @@ a
   align-items: center;
 }
 
+#manager-home-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #sign-in-header {
     margin-top: 100px;
     display: flex;
@@ -45,6 +51,20 @@ a
     margin-top: 100px;
     margin-bottom: 100px;
     margin-left: 400px;
+}
+
+#pending-reimbs-header {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#processed-reimbs-header {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #error-message {

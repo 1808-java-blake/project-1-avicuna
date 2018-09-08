@@ -26,10 +26,13 @@ export class EmployeeNav extends React.Component<any, any> {
                     <Collapse isOpen = { this.state.collapse } navbar>
                         <NavbarNav left>
                             <NavItem active>
-                                <NavLink to="#">Pending</NavLink>
+                                <NavLink to="/home">Pending</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink to="#">Processed</NavLink>
+                                <NavLink to="/processed-reimbs">Processed</NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink to="#">Submit Reimbursement</NavLink>
                             </NavItem>
                         </NavbarNav>
                         <NavbarNav right>
