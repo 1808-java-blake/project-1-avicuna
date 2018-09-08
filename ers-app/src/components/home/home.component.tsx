@@ -21,10 +21,6 @@ export class HomeComponent extends React.Component<IProps, any> {
       this.props.fetchPendingReimbursements(this.userInfo.userRoleId);
   }
 
-  public createCard(reimb: any[]) {
-      return <PendingReimbCard reimb/>
-  }
-
   public render() {
     return (
         <div>
@@ -33,7 +29,7 @@ export class HomeComponent extends React.Component<IProps, any> {
             <br></br>
             <br></br>
             <div id="home-container">
-                <PendingReimbCard />
+                <PendingReimbCard reimbs={this.props.reimbs}/>
             </div>
         </div>
     );

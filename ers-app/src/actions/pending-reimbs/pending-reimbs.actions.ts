@@ -16,12 +16,12 @@ export const fetchAllPendingReimbs = () => (dispatch: any) => {
             return res.json();
         })
         .then((res: any) => {
-            const reimbs = [];
-            for (const reimb in res) {
-                if(reimb){
+            const reimbs: any[] = [];
+            res.forEach((reimb: any) => {
+                if(reimb && reimb.reimbStatusId === 1){
                     reimbs.push(reimb);
                 }
-            }
+            })
         dispatch({
             payload: {
                 reimbs
@@ -40,13 +40,13 @@ export const fetchPendingReimbursements = (id: number) => (dispatch: any) => {
         .then((res: any) => {
             return res.json();
         })
-        .then((res:any) => {
-            const reimbs = [];
-            for (const reimb in res) {
-                if(reimb){
+        .then((res: any) => {
+            const reimbs: any[] = [];
+            res.forEach((reimb: any) => {
+                if(reimb && reimb.reimbStatusId === 1){
                     reimbs.push(reimb);
                 }
-            }
+            })
             dispatch({
                 payload: {
                     reimbs
