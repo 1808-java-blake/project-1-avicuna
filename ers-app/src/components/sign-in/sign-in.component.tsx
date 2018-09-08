@@ -98,7 +98,7 @@ class SignInComponent extends React.Component<IProps, any> {
                                                     success="right"/>
                                             </div>
                                             <div className="text-center py-4 mt-3">
-                                                <Button color="cyan" type="submit">Sign In</Button>
+                                                <Button className="hoverable btn btn-default" color="cyan" type="submit">Sign In</Button>
                                                 {errorMessage && <p id="error-message">{errorMessage}</p>}
                                             </div>
                                         </form>

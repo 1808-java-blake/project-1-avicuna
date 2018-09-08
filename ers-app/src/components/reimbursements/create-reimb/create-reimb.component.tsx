@@ -7,6 +7,8 @@ export class CreateReimbComponent extends React.Component<any, any> {
         return (
             <div>
                 <EmployeeNav/>
+                <br></br>
+                <br></br>
                 <div id="create-reimb-container">
                     <CreateReimbFormComponent/>
                 </div>

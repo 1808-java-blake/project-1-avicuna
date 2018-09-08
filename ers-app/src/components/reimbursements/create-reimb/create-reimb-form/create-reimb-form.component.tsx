@@ -1,49 +1,34 @@
 import * as React from 'react';
-import { Container, Row, Col, Input, Button, Fa, Modal, ModalBody, ModalFooter } from 'mdbreact';
+// import { Card, CardBody, Container, Row, Col, Fa, Input, Button} from 'mdbreact';
 
 export class CreateReimbFormComponent extends React.Component<any, any>  {
-    constructor(props) {
-        super(props);
-        this.state = {
-            modal: false
-        }
-        this.toggle = this.toggle.bind(this);
-    }
-
-    public toggle() {
-        this.setState({
-            modal: !this.state.modal
-        });
-    }
-
     public render() {
         return(
-            <Container>
-                <Row>
-                    <Col md="6">
-                        <Button color="info" onClick={this.toggle}>Launch modal contact form</Button>
-                        <Modal isOpen={this.state.modal} toggle={this.toggle} className="cascading-modal">
-                            <div className="modal-header primary-color white-text">
-                                <h4 className="title">
-                                    <Fa className="fa fa-pencil" /> Contact form</h4>
-                                <button type="button" className="close" onClick={this.toggle}>
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                            </div>
-                            <ModalBody className="grey-text">
-                                <Input size="sm" label="Your name" icon="user" group type="text" validate error="wrong" success="right"/>
-                                <Input size="sm" label="Your email" icon="envelope" group type="email" validate error="wrong" success="right"/>
-                                <Input size="sm" label="Subject" icon="tag" group type="text" validate error="wrong" success="right"/>
-                                <Input size="sm" type="textarea" rows="2" label="Your message" icon="pencil"/>
-                            </ModalBody>
-                            <ModalFooter>
-                                <Button color="secondary" onClick={this.toggle}>Close</Button>{' '}
-                                <Button color="primary">Save changes</Button>
-                            </ModalFooter>
-                        </Modal>
-                    </Col>
-                </Row>
-            </Container>
+            <div className="card mx-xl-5">
+                <div className="card-body">
+                    <form>
+                        <p className="h4 text-center py-4">Submit Reimbursement</p>
+                        <label htmlFor="amount" className="grey-text font-weight-light">Amount</label>
+                        <input type="number" id="amount" className="form-control" />
+                        <br />
+                        <label htmlFor="description" className="grey-text font-weight-light">Description</label>
+                        <input type="text" id="description" className="form-control" />
+                        <br />
+                        <div className="form-group">
+                            <label htmlFor="sel1" className="grey-text font-weight-light">Select type of reimbursement:</label>
+                            <select className="form-control" id="sel1">
+                                <option>Lodging</option>
+                                <option>Travel</option>
+                                <option>Food</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div className="text-center py-4 mt-3">
+                            <button className="hoverable btn btn-default" type="submit">Send</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         );
     }
 };
