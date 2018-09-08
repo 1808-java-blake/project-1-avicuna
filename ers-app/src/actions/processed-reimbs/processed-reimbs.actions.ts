@@ -10,18 +10,18 @@ export const updateId = (id: number) => {
 }
 
 export const fetchProcessedReimbursements = (id: number) => (dispatch: any) => {
-    const getPendingReimbursements: any = fetch(`http://localhost:9001/reimbursements/${id}`);
-    getPendingReimbursements
+    const getProcessedReimbursements: any = fetch(`http://localhost:9001/reimbursements/${id}`);
+    getProcessedReimbursements
         .then((res: any) => {
             return res.json();
         })
         .then((res:any) => {
-            const reimbs = [];
-            for (const reimb in res) {
-                if(reimb){
+            const reimbs: any[] = [];
+            res.forEach((reimb: any) => {
+                if(reimb && reimb.reimbStatusId !== 1){
                     reimbs.push(reimb);
                 }
-            }
+            })
             dispatch({
                 payload: {
                     reimbs
