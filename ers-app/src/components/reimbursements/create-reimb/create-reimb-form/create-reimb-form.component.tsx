@@ -1,5 +1,5 @@
 import * as React from 'react';
-// import { Card, CardBody, Container, Row, Col, Fa, Input, Button} from 'mdbreact';
+import { Button } from 'mdbreact';
 
 export class CreateReimbFormComponent extends React.Component<any, any>  {
     public render() {
@@ -24,7 +24,7 @@ export class CreateReimbFormComponent extends React.Component<any, any>  {
                             </select>
                         </div>
                         <div className="text-center py-4 mt-3">
-                            <button className="hoverable btn btn-default" type="submit">Send</button>
+                            <Button type="submit">Send</Button>
                         </div>
                     </form>
                 </div>

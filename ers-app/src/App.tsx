@@ -9,7 +9,7 @@ import { store } from './Store';
 import HomeComponent from "./components/home/home.component";
 import { ManagerHomeComponent } from "./components/manager-home/manager-home.component";
 import ProcessedReimbsComponent  from "./components/reimbursements/processed-reimbs/processed-reimbs.component";
-import { CreateReimbComponent } from "./components/reimbursements/create-reimb/create-reimb.component";
+import CreateReimbComponent from "./components/reimbursements/create-reimb/create-reimb.component";
 
 class App extends React.Component {
   public render() {
