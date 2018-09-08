@@ -25,14 +25,14 @@ export class EmployeeNav extends React.Component<any, any> {
                     { !this.state.isWideEnough && <NavbarToggler onClick = { this.onClick } />}
                     <Collapse isOpen = { this.state.collapse } navbar>
                         <NavbarNav left>
-                            <NavItem active>
+                            <NavItem>
                                 <NavLink to="/home">Pending</NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink to="/processed-reimbs">Processed</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink to="#">Submit Reimbursement</NavLink>
+                                <NavLink to="/create-reimb">Submit Reimbursement</NavLink>
                             </NavItem>
                         </NavbarNav>
                         <NavbarNav right>
