@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 import { store } from './Store';
 import HomeComponent from "./components/home/home.component";
 import { ManagerHomeComponent } from "./components/manager-home/manager-home.component";
-import { ProcessedReimbsComponent } from "./components/reimbursements/processed-reimbs/processed-reimbs.component";
+import ProcessedReimbsComponent  from "./components/reimbursements/processed-reimbs/processed-reimbs.component";
 
 class App extends React.Component {
   public render() {

@@ -1,83 +1,94 @@
 import * as React from 'react';
 import * as MD from 'mdbreact';
 
-export const ProcessedReimbCard: React.StatelessComponent<any> = (props: any) => {
+export const ProcessedReimbTable: React.StatelessComponent<any> = (props: any) => {
     const dataPanel = {
         columns: [
             {
-                'field': 'first',
-                'label': 'First Name',
+                'field': 'id',
+                'label': 'ID',
                 'sort': 'asc'
             },
             {
-                'field': 'last',
-                'label': 'Last Name',
+                'field': 'amount',
+                'label': 'Amount',
                 'sort': 'asc'
             },
             {
-                'field': 'username',
-                'label': 'Username',
+                'field': 'submitted',
+                'label': 'Submitted',
                 'sort': 'asc'
             },
             {
-                'field': 'username2',
-                'label': 'Username',
+                'field': 'resolved',
+                'label': 'Resolved',
                 'sort': 'asc'
             },
             {
-                'field': 'username3',
-                'label': 'Username',
+                'field': 'description',
+                'label': 'Description',
                 'sort': 'asc'
             },
             {
-                'field': 'username4',
-                'label': 'Username',
+                'field': 'type',
+                'label': 'Type',
+                'sort': 'asc'
+            },
+            {
+                'field': 'status',
+                'label': 'Status',
                 'sort': 'asc'
             }
         ],
         rows: [
             {
-                'first': 'Mark',
-                'last': 'Otto',
-                'username': '@mdo',
-                'username2': 'Mark',
-                'username3': 'Otto',
-                'username4': '@mdo'
+
             },
-            {
-                'first': 'Jacob',
-                'last': 'Thornton',
-                'username': '@fat',
-                'username2': 'Jacob',
-                'username3': 'Thornton',
-                'username4': '@fat'
-            },
-            {
-                'first': 'Larry',
-                'last': 'the Bird',
-                'username': '@twitter',
-                'username2': 'Larry',
-                'username3': 'the Bird',
-                'username4': '@twitter'
-            },
-            {
-                'first': 'Paul',
-                'last': 'Topolski',
-                'username': '@P_Topolski',
-                'username2': 'Paul',
-                'username3': 'Topolski',
-                'username4': '@P_Topolski'
-            },
-            {
-                'first': 'Larry',
-                'last': 'the Bird',
-                'username': '@twitter',
-                'username2': 'Larry',
-                'username3': 'the Bird',
-                'username4': '@twitter'
-            }
         ]
     };
+
+    if(props.reimbs){
+        props.reimbs.forEach((reimb: any) =>  {
+            let reimbType: any;
+            let reimbStatus: any;
+            switch (reimb.reimbTypeId) {
+                case 1:
+                    reimbType = "Lodging";
+                    break;
+                case 2:
+                    reimbType = "Travel";
+                    break;
+                case 3:
+                    reimbType = "Food";
+                    break;
+                case 4:
+                    reimbType = "Other";
+                    break;
+            }
+            switch (reimb.reimbStatusId) {
+                case 1:
+                    reimbStatus = "Pending";
+                    break;
+                case 2:
+                    reimbStatus = "Accepted";
+                    break;
+                case 3:
+                    reimbStatus = "Denied";
+                    break;
+            }
+            dataPanel.rows.push(
+                {
+                    'id': reimb.id,
+                    'amount': '$' + reimb.reimbAmount,
+                    'submitted': reimb.reimbSubmitted,
+                    'resolved': reimb.reimbResolved,
+                    'description': reimb.reimbDescription,
+                    'type': reimbType,
+                    'status': reimbStatus,
+                }
+            );
+        })
+    }
     return (
         <MD.MDBCard narrow>
             <MD.MDBCardBody cascade>
