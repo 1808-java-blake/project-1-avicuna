@@ -15,28 +15,38 @@ export const createReimbReducer = (state = initialState, action: any) => {
     switch (action.type) {
         case createReimbTypes.UPDATE_AMOUNT:
             return {
-                ...state,
-                reimbAmount: action.payload.reimbAmount,
+                reimbursement: {
+                    ...state.reimbursement,
+                    reimbAmount: action.payload.reimbAmount,
+                }
             }
         case createReimbTypes.UPDATE_SUBMITTED:
             return {
-                ...state,
-                reimbSubmitted: action.payload.reimbSubmitted,
+                reimbursement: {
+                    ...state.reimbursement,
+                    reimbSubmitted: action.payload.reimbSubmitted,
+                }
             }
         case createReimbTypes.UPDATE_DESCRIPTION:
             return {
-                ...state,
-                reimbDescription: action.payload.reimbDescription,
+                reimbursement: {
+                    ...state.reimbursement,
+                    reimbDescription: action.payload.reimbDescription,
+                }
             }
         case createReimbTypes.UPDATE_AUTHOR:
             return {
-                ...state,
-                reimbAuthor: action.payload.reimbAuthor,
+                reimbursement: {
+                    ...state.reimbursement,
+                    reimbAuthor: action.payload.reimbAuthor,
+                }
             }
         case createReimbTypes.UPDATE_TYPE_ID:
             return {
-                ...state,
-                reimbTypeId: action.payload.reimbTypeId,
+                reimbursement: {
+                    ...state.reimbursement,
+                    reimbTypeId: action.payload.reimbTypeId,
+                }
             }
     }
 
