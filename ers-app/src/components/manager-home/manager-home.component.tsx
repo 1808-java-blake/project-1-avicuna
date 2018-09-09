@@ -14,8 +14,16 @@ export class ManagerHomeComponent extends React.Component<IProps, any> {
 
     constructor(props: any){
         super(props);
+    }
+
+    public componentDidMount() {
         this.props.fetchAllPendingReimbs();
     }
+
+    public componentDidUpdate() {
+        this.props.fetchAllPendingReimbs();
+    }
+
 
     public createReimbCard = (reimb: any) => {
         let reimbType;
@@ -34,7 +42,7 @@ export class ManagerHomeComponent extends React.Component<IProps, any> {
                 break;
         }
         return <ManagerReimbCard reimb={reimb} reimbType={reimbType} reimbId={reimb.reimb_id}/>;
-    }
+}
 
     public createReimbCards = (reimbs: any) => {
         if(reimbs) {
