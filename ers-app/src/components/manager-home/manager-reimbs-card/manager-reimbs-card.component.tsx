@@ -1,16 +1,35 @@
 import * as React from 'react';
-import * as MD from 'mdbreact';
 
-export const ManagerReimbCard: React.StatelessComponent<any> = (props: any) => {
-    return (
-        <MD.Card className="text-center w-100 mb-4">
-            <MD.CardHeader color="unique-color" tag="h3">John Smith</MD.CardHeader>
-            <MD.CardBody>
-                <MD.CardTitle>Special title treatment</MD.CardTitle>
-                <MD.CardText>With supporting text below as a natural lead-in to additional content.</MD.CardText>
-                <MD.Button color="success">Approve</MD.Button>
-                <MD.Button color="danger">Deny</MD.Button>
-            </MD.CardBody>
-        </MD.Card>
-    )
+import {Card, CardHeader, CardBody, CardTitle, CardText, Button} from 'mdbreact';
+
+export class ManagerReimbCard extends React.Component<any, any> {
+
+    constructor(props: any) {
+        super(props);
+    }
+
+    public acceptReimb = (e: any) => {
+        return;
+    }
+
+    public denyReimb = (e: any) => {
+        return;
+    }
+
+    public render() {
+        return (
+            <div id="manager-home-container">
+                <Card className="text-center w-75 mb-4">
+                    <CardHeader color="unique-color" tag="h3">{this.props.reimb.firstname} {this.props.reimb.lastname}</CardHeader>
+                    <CardBody>
+                        <CardTitle>{this.props.reimbType}</CardTitle>
+                        <CardText>{this.props.reimb.reimb_description}</CardText>
+                        <Button color="success">Approve</Button>
+                        <Button color="danger">Deny</Button>
+                    </CardBody>
+                </Card>
+            </div>
+        )
+}
+
 }

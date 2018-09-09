@@ -10,7 +10,15 @@ export const updateId = (id: number) => {
 }
 
 export const fetchAllPendingReimbs = () => (dispatch: any) => {
-    const getAllPendingReimbs: any = fetch(`http://localhost:9001/reimbursements/`);
+    const getAllPendingReimbs: any = fetch(`http://localhost:9001/reimbursements/`,
+        {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            credentials: 'include',
+        })
     getAllPendingReimbs
         .then((res: any) => {
             return res.json();
@@ -18,7 +26,7 @@ export const fetchAllPendingReimbs = () => (dispatch: any) => {
         .then((res: any) => {
             const reimbs: any[] = [];
             res.forEach((reimb: any) => {
-                if(reimb && reimb.reimbStatusId === 1){
+                if(reimb){
                     reimbs.push(reimb);
                 }
             })

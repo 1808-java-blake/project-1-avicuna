@@ -29,6 +29,7 @@ export class HomeComponent extends React.Component<IProps, any> {
             <br></br>
             <br></br>
             <div id="home-container">
+                {console.log(this.props.reimbs)}
                 <PendingReimbCard reimbs={this.props.reimbs}/>
             </div>
         </div>
