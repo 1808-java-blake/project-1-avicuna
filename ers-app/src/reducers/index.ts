@@ -15,7 +15,9 @@ export interface ISignInState {
 }
 
 export interface IAllUsersState {
-    users: any[] | null
+    users: any[] | null,
+    reimbs: any[] | null,
+    userId: number
 }
 
 export interface IPendingReimbsState {

@@ -1,48 +1,56 @@
 import * as React from 'react';
-import { Container, Button, Modal, ModalBody, ModalHeader, ModalFooter } from 'mdbreact';
+// import { Container, Button, Modal, ModalBody, ModalHeader, ModalFooter } from 'mdbreact';
 import {ManagerNav} from "../manager-nav/manager-nav.component";
+import {IAllUsersState, IProcessedReimbsState, IState} from "../../reducers";
+import {fetchAllUsers, updateId, fetchProcessedReimbursements} from "../../actions/all-users/all-users.actions";
+import {connect} from "react-redux";
+import {ModalDisplay} from "./employee-history-modal/employee-history-modal.component";
+
+interface IProps extends IAllUsersState, IProcessedReimbsState {
+    fetchAllUsers: () => any,
+    fetchProcessedReimbursements: (id: number) => any,
+    updateId: (id: number) => any,
+}
 
 
-class ModalPage extends React.Component<any, any> {
+export class ModalPage extends React.Component<IProps, any> {
     constructor(props) {
         super(props);
-        this.state = {
-            modal: false
-        };
-
-        this.toggle = this.toggle.bind(this);
+        this.createModalDisplay = this.createModalDisplay.bind(this);
     }
 
-    public toggle() {
-        this.setState({
-            modal: !this.state.modal
-        });
+    public componentDidMount() {
+        this.props.fetchAllUsers();
+    }
+
+    public createModalDisplay(user: any) {
+        this.props.updateId(user.user_id);
+        this.props.fetchProcessedReimbursements(user.user_id);
+        return <ModalDisplay userId={user.user_id} firstname={user.firstname} lastname={user.lastname} reimbs={this.props.reimbs}/>
+    }
+
+    public createModalDisplays(users: any) {
+        if (users) {
+            return users.map(this.createModalDisplay);
+        }
     }
 
     public render() {
         return (
             <div>
-                <ManagerNav/>
+            <ManagerNav/>
                 <br></br>
                 <br></br>
-                <h1>Employees:</h1>
-                <br></br>
-                <Container>
-                <Button color="danger" onClick={this.toggle}>John Smith</Button>
-                <Modal isOpen={this.state.modal} toggle={this.toggle}>
-                    <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
-                    <ModalBody>
-                        (...)
-                    </ModalBody>
-                    <ModalFooter>
-                        <Button color="secondary" onClick={this.toggle}>Close</Button>{' '}
-                        <Button color="primary">Save changes</Button>
-                    </ModalFooter>
-                </Modal>
-            </Container>
+                {this.props.users && this.createModalDisplays(this.props.users)}
             </div>
         );
     }
 }
 
-export default ModalPage;
+const mapStateToProps = (state: IState) => state.allUsers;
+const mapDispatchToProps = {
+    fetchAllUsers,
+    updateId,
+    fetchProcessedReimbursements
+}
+export default connect(mapStateToProps, mapDispatchToProps)(ModalPage)

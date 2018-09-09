@@ -26,7 +26,7 @@ export const fetchAllPendingReimbs = () => (dispatch: any) => {
         .then((res: any) => {
             const reimbs: any[] = [];
             res.forEach((reimb: any) => {
-                if(reimb){
+                if(reimb && reimb.reimb_status_id === 1){
                     reimbs.push(reimb);
                 }
             })

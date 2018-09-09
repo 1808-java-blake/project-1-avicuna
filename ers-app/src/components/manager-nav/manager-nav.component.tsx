@@ -26,6 +26,9 @@ export class ManagerNav extends React.Component<any, any> {
                 <Collapse isOpen = { this.state.collapse } navbar>
                     <NavbarNav left>
                         <NavItem>
+                            <NavLink to="/manager-home">Home</NavLink>
+                        </NavItem>
+                        <NavItem>
                             <NavLink to="/employee-history">View Employee History</NavLink>
                         </NavItem>
                         <NavItem>
