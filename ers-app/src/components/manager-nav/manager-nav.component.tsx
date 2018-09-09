@@ -20,11 +20,14 @@ export class ManagerNav extends React.Component<any, any> {
         return (
             <Navbar dark color="unique-color" expand="md" scrolling>
                 <NavbarBrand >
-                    <strong>Navbar</strong>
+                    <strong>FUCK</strong>
                 </NavbarBrand>
                 { !this.state.isWideEnough && <NavbarToggler onClick = { this.onClick } />}
                 <Collapse isOpen = { this.state.collapse } navbar>
                     <NavbarNav left>
+                        <NavItem>
+                            <NavLink to="/employee-history">View Employee History</NavLink>
+                        </NavItem>
                         <NavItem>
                             <NavLink to="#">Create User</NavLink>
                         </NavItem>

@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import { store } from './Store';
 import HomeComponent from "./components/home/home.component";
 import ManagerHomeComponent from "./components/manager-home/manager-home.component";
+import ModalPage from "./components/employee-history/employee-history.component";
 import ProcessedReimbsComponent  from "./components/reimbursements/processed-reimbs/processed-reimbs.component";
 import CreateReimbComponent from "./components/reimbursements/create-reimb/create-reimb.component";
 
@@ -21,6 +22,7 @@ class App extends React.Component {
                         <Switch>
                             <Route path="/home" component={HomeComponent} />
                             <Route path="/manager-home" component={ManagerHomeComponent} />
+                            <Route path="/employee-history" component={ModalPage} />
                             <Route path="/processed-reimbs" component={ProcessedReimbsComponent} />
                             <Route path="/create-reimb" component={CreateReimbComponent} />
                             <Route path="/sign-in" component={SignInComponent} />

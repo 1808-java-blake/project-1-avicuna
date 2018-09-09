@@ -3,6 +3,7 @@ import { signInReducer } from "./sign-in.reducer";
 import {pendingReimbsReducer} from "./pending-reimbs.reducer";
 import {processedReimbsReducer} from "./processed-reimbs.reducer";
 import {createReimbReducer} from "./create-reimb.reducer";
+import {allUsersReducer} from "./all-users.reducer";
 
 
 export interface ISignInState {
@@ -11,6 +12,10 @@ export interface ISignInState {
         username: string
     },
     errorMessage: string
+}
+
+export interface IAllUsersState {
+    users: any[] | null
 }
 
 export interface IPendingReimbsState {
@@ -34,6 +39,7 @@ export interface ICreateReimbState {
 }
 
 export interface IState {
+    allUsers: IAllUsersState,
     createReimb: ICreateReimbState,
     signIn: ISignInState,
     pendingReimbs: IPendingReimbsState,
@@ -41,6 +47,7 @@ export interface IState {
 }
 
 export const state = combineReducers<IState>({
+    allUsers: allUsersReducer,
     createReimb: createReimbReducer,
     pendingReimbs: pendingReimbsReducer,
     processedReimbs: processedReimbsReducer,

@@ -20,10 +20,11 @@ export class ManagerHomeComponent extends React.Component<IProps, any> {
         this.props.fetchAllPendingReimbs();
     }
 
-    public componentDidUpdate() {
-        this.props.fetchAllPendingReimbs();
+    public componentDidUpdate(prevProps) {
+        if(this.props.reimbs !== prevProps.reimbs){
+            this.props.fetchAllPendingReimbs();
+        }
     }
-
 
     public createReimbCard = (reimb: any) => {
         let reimbType;
@@ -57,7 +58,7 @@ export class ManagerHomeComponent extends React.Component<IProps, any> {
                 <h1 id="pending-reimbs-header">Submitted Reimbursements</h1>
                 <br></br>
                 <br></br>
-                {this.createReimbCards(this.props.reimbs)}
+                {this.props.reimbs && this.createReimbCards(this.props.reimbs)}
             </div>
         )
     }
