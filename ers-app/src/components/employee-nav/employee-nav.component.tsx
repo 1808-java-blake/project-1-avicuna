@@ -1,4 +1,5 @@
 import * as React from 'react';
+import logo from "../../incognizant_logo.png";
 import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink } from 'mdbreact';
 
 export class EmployeeNav extends React.Component<any, any> {
@@ -20,7 +21,7 @@ export class EmployeeNav extends React.Component<any, any> {
         return (
                 <Navbar dark color="unique-color" expand="md" scrolling>
                     <NavbarBrand >
-                        <strong>Navbar</strong>
+                        <img className="img-adjust-position rev-logo" src={logo} alt="ERS"/>
                     </NavbarBrand>
                     { !this.state.isWideEnough && <NavbarToggler onClick = { this.onClick } />}
                     <Collapse isOpen = { this.state.collapse } navbar>

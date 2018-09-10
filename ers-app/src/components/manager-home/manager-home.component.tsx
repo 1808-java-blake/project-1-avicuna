@@ -10,8 +10,6 @@ interface IProps extends IPendingReimbsState {
 }
 
 export class ManagerHomeComponent extends React.Component<IProps, any> {
-    public userInfo = JSON.parse(localStorage.getItem('user') || '{}');
-
     constructor(props: any){
         super(props);
     }

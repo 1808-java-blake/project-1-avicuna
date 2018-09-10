@@ -1,5 +1,4 @@
 import * as React from 'react';
-// import { Container, Button, Modal, ModalBody, ModalHeader, ModalFooter } from 'mdbreact';
 import {ManagerNav} from "../manager-nav/manager-nav.component";
 import {IAllUsersState, IProcessedReimbsState, IState} from "../../reducers";
 import {fetchAllUsers, updateId, fetchProcessedReimbursements} from "../../actions/all-users/all-users.actions";
@@ -16,6 +15,7 @@ interface IProps extends IAllUsersState, IProcessedReimbsState {
 export class ModalPage extends React.Component<IProps, any> {
     constructor(props) {
         super(props);
+        this.props.fetchAllUsers();
         this.createModalDisplay = this.createModalDisplay.bind(this);
     }
 
@@ -24,7 +24,7 @@ export class ModalPage extends React.Component<IProps, any> {
     }
 
     public createModalDisplay(user: any) {
-        this.props.updateId(user.user_id);
+        // this.props.updateId(user.user_id);
         this.props.fetchProcessedReimbursements(user.user_id);
         return <ModalDisplay userId={user.user_id} firstname={user.firstname} lastname={user.lastname} reimbs={this.props.reimbs}/>
     }

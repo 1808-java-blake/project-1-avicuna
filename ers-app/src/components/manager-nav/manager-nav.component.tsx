@@ -1,4 +1,5 @@
 import * as React from 'react';
+import logo from "../../logo.svg";
 import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink } from 'mdbreact';
 
 export class ManagerNav extends React.Component<any, any> {
@@ -20,7 +21,7 @@ export class ManagerNav extends React.Component<any, any> {
         return (
             <Navbar dark color="unique-color" expand="md" scrolling>
                 <NavbarBrand >
-                    <strong>FUCK</strong>
+                    <img className="img-adjust-position rev-logo" src={logo} alt="Incognizant"/>
                 </NavbarBrand>
                 { !this.state.isWideEnough && <NavbarToggler onClick = { this.onClick } />}
                 <Collapse isOpen = { this.state.collapse } navbar>
@@ -30,9 +31,6 @@ export class ManagerNav extends React.Component<any, any> {
                         </NavItem>
                         <NavItem>
                             <NavLink to="/employee-history">View Employee History</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink to="#">Create User</NavLink>
                         </NavItem>
                     </NavbarNav>
                     <NavbarNav right>

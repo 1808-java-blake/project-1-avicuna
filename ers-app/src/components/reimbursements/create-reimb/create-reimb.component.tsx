@@ -32,6 +32,9 @@ class CreateReimbComponent extends React.Component<IProps, any> {
         if (dd < 10) {
             day = '0' + String(dd);
         }
+        if (dd >= 10) {
+            day = String(dd);
+        }
         if (mm < 10) {
             month = '0' + String(mm);
         }

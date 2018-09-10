@@ -68,7 +68,7 @@ class SignInComponent extends React.Component<IProps, any> {
 
         return (
             <div>
-                <h1 id="sign-in-header">Welcome to the Enterprise Reimbursement Software</h1>
+                <h1 id="sign-in-header">Incognizant Reimbursement Software</h1>
                 <div id="sign-in-container">
                     <Container>
                         <Row>
